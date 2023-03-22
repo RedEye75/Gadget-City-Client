@@ -6,7 +6,7 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const Nav = () => {
   const [openNav, setOpenNav] = useState(false);
 
@@ -23,7 +23,7 @@ const Nav = () => {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-bold"
       >
         <NavLink to={"/"} className="flex items-center">
           Home
@@ -33,7 +33,7 @@ const Nav = () => {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-bold"
       >
         <NavLink to={"/dashboard"} className="flex items-center">
           Dashboard
@@ -43,7 +43,7 @@ const Nav = () => {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-bold"
       >
         <NavLink to={"/watches"} className="flex items-center">
           Watches
@@ -53,7 +53,7 @@ const Nav = () => {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-bold"
       >
         <NavLink className="flex items-center">Blogs</NavLink>
       </Typography>
@@ -61,33 +61,36 @@ const Nav = () => {
   );
   return (
     <div className="">
-      <Navbar className="mx-auto border-none max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
-        <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+      <Navbar className="mx-auto border-none shadow-none max-w-screen-2xl py-2 px-4 lg:px-8 lg:py-4">
+        <div className="container mx-auto flex items-center justify-around text-blue-gray-900">
           <Typography
             as="a"
             href="#"
             variant="small"
-            className="mr-4 cursor-pointer py-1.5 font-normal"
+            className="mr-4 cursor-pointer py-1.5 font-bold"
           >
             <strong className="text-3xl  text-black ">Gadget City</strong>
           </Typography>
           <div className="hidden  text-black lg:block">{navList}</div>
           <div>
-            {" "}
-            <Button
-              variant="gradient"
-              size="sm"
-              className="hidden  text-black lg:inline-block"
-            >
-              <span>Sign In</span>
-            </Button>
-            <Button
-              variant="gradient"
-              size="sm"
-              className="hidden  text-black lg:inline-block"
-            >
-              <span>Sign Up</span>
-            </Button>
+            <Link to={"/login"}>
+              <Button
+                variant="gradient"
+                size="sm"
+                className="hidden mr-3  text-black lg:inline-block"
+              >
+                <span>Sign In</span>
+              </Button>
+            </Link>
+            <Link to={"/register"}>
+              <Button
+                variant="gradient"
+                size="sm"
+                className="hidden  text-black lg:inline-block"
+              >
+                <span>Sign Up</span>
+              </Button>
+            </Link>
           </div>
           <IconButton
             variant="text"

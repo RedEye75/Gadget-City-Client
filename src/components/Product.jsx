@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 
 const Product = ({ product }) => {
   const {
@@ -34,6 +35,9 @@ const Product = ({ product }) => {
           </div>
         </div>
       </div>
+      <button className="px-16 mt-3 py-2 bg-green-500 rounded border-black text-white font-bold">
+        Buy now
+      </button>
     </div>
   );
 };

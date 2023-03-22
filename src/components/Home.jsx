@@ -7,7 +7,7 @@ import Products from "./Products";
 
 const Home = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <div
         className="hero min-h-screen"
         style={{
@@ -29,6 +29,7 @@ const Home = () => {
       </div>
 
       <Categories />
+      <Products />
     </div>
   );
 };

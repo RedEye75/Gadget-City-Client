@@ -1,6 +1,5 @@
 import React from "react";
 import Brand from "./Brand";
-import Product from "./Product";
 
 const Categories = () => {
   const categories = [
