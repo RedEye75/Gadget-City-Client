@@ -25,7 +25,9 @@ const Nav = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <NavLink className="flex items-center">Home</NavLink>
+        <NavLink to={"/"} className="flex items-center">
+          Home
+        </NavLink>
       </Typography>
       <Typography
         as="li"
@@ -33,7 +35,9 @@ const Nav = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <NavLink className="flex items-center">Home</NavLink>
+        <NavLink to={"/dashboard"} className="flex items-center">
+          Dashboard
+        </NavLink>
       </Typography>
       <Typography
         as="li"
@@ -41,7 +45,9 @@ const Nav = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <NavLink className="flex items-center">Categories</NavLink>
+        <NavLink to={"/watches"} className="flex items-center">
+          Watches
+        </NavLink>
       </Typography>
       <Typography
         as="li"
@@ -54,8 +60,8 @@ const Nav = () => {
     </ul>
   );
   return (
-    <div>
-      <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
+    <div className="">
+      <Navbar className="mx-auto border-none max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
         <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"
@@ -63,22 +69,22 @@ const Nav = () => {
             variant="small"
             className="mr-4 cursor-pointer py-1.5 font-normal"
           >
-            <strong className="text-3xl ">Gadget City</strong>
+            <strong className="text-3xl  text-black ">Gadget City</strong>
           </Typography>
-          <div className="hidden lg:block">{navList}</div>
+          <div className="hidden  text-black lg:block">{navList}</div>
           <div>
             {" "}
             <Button
               variant="gradient"
               size="sm"
-              className="hidden lg:inline-block"
+              className="hidden  text-black lg:inline-block"
             >
               <span>Sign In</span>
             </Button>
             <Button
               variant="gradient"
               size="sm"
-              className="hidden lg:inline-block"
+              className="hidden  text-black lg:inline-block"
             >
               <span>Sign Up</span>
             </Button>

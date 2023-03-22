@@ -1,7 +1,9 @@
 import React from "react";
 import backgroundImage from "../images/bg.jpg";
+import Brand from "./Brand";
 import Categories from "./Categories";
-import Category from "./Category";
+import Product from "./Product";
+import Products from "./Products";
 
 const Home = () => {
   return (
@@ -25,7 +27,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Category></Category>
+
       <Categories />
     </div>
   );
