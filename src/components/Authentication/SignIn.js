@@ -4,6 +4,9 @@ import login from "../../images/login.jpg";
 import { FcGoogle } from "react-icons/fc";
 
 const SignIn = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
+  };
   return (
     <div>
       <section>
@@ -23,56 +26,53 @@ const SignIn = () => {
                     </div>
                   </div>
                 </div>
-
-                <div class="mt-6 space-y-2">
-                  <div>
-                    <label for="Email" class="sr-only">
-                      Email
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Type here"
-                      className="input input-bordered w-full max-w-xs"
-                    />
-                  </div>
-                  <div>
-                    <label for="password" class="sr-only">
-                      Password
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Type here"
-                      className="input input-bordered w-full max-w-xs"
-                    />
-                  </div>
-                  <div class="flex flex-col mt-4 lg:space-y-2">
-                    <button
-                      type="button"
-                      class="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                    >
-                      Sign In
-                    </button>
-                    <div className="flex justify-between">
-                      <Link>Don't have an account ?</Link>
-                      <Link
-                        className="font-bold text-green-600"
-                        to={"/register"}
+                <form onClick={handleLogin}>
+                  <div class="mt-6 space-y-2">
+                    <div>
+                      <label for="Email" class="sr-only">
+                        Email
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Email"
+                        className="input input-bordered w-full max-w-xs"
+                      />
+                    </div>
+                    <div>
+                      <label for="password" class="sr-only">
+                        Password
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="password"
+                        className="input input-bordered w-full max-w-xs"
+                      />
+                    </div>
+                    <div class="flex flex-col mt-4 lg:space-y-2">
+                      <button
+                        type="button"
+                        class="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                       >
-                        Sign Up
-                      </Link>
+                        Sign In
+                      </button>
+                      <div className="flex justify-between">
+                        <Link>Don't have an account ?</Link>
+                        <Link
+                          className="font-bold text-green-600"
+                          to={"/register"}
+                        >
+                          Sign Up
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                  <div class="relative flex justify-center text-sm">
-                    <span class="px-2 bg-white text-neutral-600">
-                      {" "}
-                      Or continue with{" "}
-                    </span>
-                  </div>
-                </div>
-                <div>
+                </form>
+
+                <div className="divider">Or continue with</div>
+                <div className="">
                   <button
                     type="submit"
-                    class="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                    class="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-gray-300 mt-3 shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                   >
                     <div class="flex items-center justify-center">
                       <span class="ml-4 flex font-bold">

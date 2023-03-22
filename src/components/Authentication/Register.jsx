@@ -31,7 +31,7 @@ const Register = () => {
                       </label>
                       <input
                         type="text"
-                        placeholder="Type here"
+                        placeholder="Email"
                         className="input input-bordered w-full max-w-xs"
                       />
                     </div>
@@ -41,7 +41,7 @@ const Register = () => {
                       </label>
                       <input
                         type="text"
-                        placeholder="Type here"
+                        placeholder="password"
                         className="input input-bordered w-full max-w-xs"
                       />
                     </div>

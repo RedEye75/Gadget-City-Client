@@ -77,7 +77,7 @@ const Nav = () => {
               <Button
                 variant="gradient"
                 size="sm"
-                className="hidden mr-3  text-black lg:inline-block"
+                className="hidden mr-3 bg-blue-500 py-3  text-white lg:inline-block"
               >
                 <span>Sign In</span>
               </Button>
@@ -86,7 +86,7 @@ const Nav = () => {
               <Button
                 variant="gradient"
                 size="sm"
-                className="hidden  text-black lg:inline-block"
+                className="hidden   bg-green-800 py-3  text-white lg:inline-block"
               >
                 <span>Sign Up</span>
               </Button>
