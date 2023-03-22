@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 import register from "../../images/register.jpg";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div>
       <div>
@@ -23,46 +37,60 @@ const Register = () => {
                       </div>
                     </div>
                   </div>
-
-                  <div class="mt-6 space-y-2">
-                    <div>
-                      <label for="Email" class="sr-only">
-                        Email
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Email"
-                        className="input input-bordered w-full max-w-xs"
-                      />
-                    </div>
-                    <div>
-                      <label for="password" class="sr-only">
-                        Password
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="password"
-                        className="input input-bordered w-full max-w-xs"
-                      />
-                    </div>
-                    <div class="flex flex-col mt-4 lg:space-y-2">
-                      <button
-                        type="button"
-                        class="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                      >
-                        Sign In
-                      </button>
-                      <div className="flex justify-between">
-                        <Link>Already have an account ?</Link>
-                        <Link
-                          className="font-bold text-green-600"
-                          to={"/login"}
+                  <form onClick={handleRegister} className="">
+                    <div class="mt-6 space-y-2">
+                      <div>
+                        <label for="Email" class="sr-only">
+                          Name
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder="Name"
+                          className="input input-bordered w-full max-w-xs"
+                        />
+                      </div>
+                      <div>
+                        <label for="Email" class="sr-only">
+                          Email
+                        </label>
+                        <input
+                          type="text"
+                          name="email"
+                          placeholder="Email"
+                          className="input input-bordered w-full max-w-xs"
+                        />
+                      </div>
+                      <div>
+                        <label for="password" class="sr-only">
+                          Password
+                        </label>
+                        <input
+                          type="text"
+                          name="password"
+                          placeholder="password"
+                          className="input input-bordered w-full max-w-xs"
+                        />
+                      </div>
+                      <div class="flex flex-col mt-4 lg:space-y-2">
+                        <button
+                          type="button"
+                          class="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                         >
-                          Sign in
-                        </Link>
+                          Sign In
+                        </button>
+                        <div className="flex justify-between">
+                          <Link>Already have an account ?</Link>
+                          <Link
+                            className="font-bold text-green-600"
+                            to={"/login"}
+                          >
+                            Sign in
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </form>
                 </div>
                 <div class="order-first hidden w-full lg:block">
                   <img
