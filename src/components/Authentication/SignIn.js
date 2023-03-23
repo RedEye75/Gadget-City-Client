@@ -3,9 +3,22 @@ import { Link } from "react-router-dom";
 import login from "../../images/login.jpg";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../context/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const SignIn = () => {
-  const { login } = useContext(AuthContext);
+  const { login, providerLogin } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+
+  // google sign In
+  const GoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .then((e) => console.log("error ta hocce : " + e));
+  };
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -86,7 +99,7 @@ const SignIn = () => {
                 <div className="divider">Or continue with</div>
                 <div className="">
                   <button
-                    type="submit"
+                    onClick={GoogleSignIn}
                     class="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-gray-300 mt-3 shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                   >
                     <div class="flex items-center justify-center">

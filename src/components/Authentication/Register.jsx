@@ -11,8 +11,9 @@ const Register = () => {
     const form = event.target;
     const email = form.email.value;
     const name = form.name.value;
+    const identity = form.identity.value;
     const password = form.password.value;
-    console.log(form, password, name, email);
+    console.log(form, password, identity, name, email);
     createUser(email, password)
       .then((result) => {
         const user = result.user;
@@ -52,6 +53,15 @@ const Register = () => {
                         />
                       </div>
                       <div>
+                        <select
+                          name="identity"
+                          class="select select-bordered w-full max-w-xs"
+                        >
+                          <option value={"buyer"}>Buyer</option>
+                          <option value={"seller"}>Seller</option>
+                        </select>
+                      </div>
+                      <div>
                         <label class="sr-only">Email</label>
                         <input
                           type="email"
@@ -70,17 +80,11 @@ const Register = () => {
                         />
                       </div>
                       <div class="flex flex-col mt-4 lg:space-y-2">
-                        {/* <button
-                          type="submit"
-                          class="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                        >
-                          Sign In
-                        </button> */}
                         <input
                           type="submit"
                           placeholder="Type here"
-                          value="submit"
-                          className="input input-ghost w-full max-w-xs"
+                          value="Submit"
+                          className="input input-ghost  bg-green-700 text-white w-full max-w-xs"
                         />
                         <div className="flex justify-between">
                           <Link>Already have an account ?</Link>
