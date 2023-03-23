@@ -6,7 +6,7 @@ import Product from "./Product";
 const Products = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("products.json")
+    fetch("http://localhost:5000/watches")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
