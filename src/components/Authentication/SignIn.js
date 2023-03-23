@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import login from "../../images/login.jpg";
+import loginImage from "../../images/login.jpg";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../context/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
@@ -16,7 +16,7 @@ const SignIn = () => {
         const user = result.user;
         console.log(user);
       })
-      .then((e) => console.log("error ta hocce : " + e));
+      .then((e) => console.log("Error : " + e));
   };
 
   const handleLogin = (event) => {
@@ -80,7 +80,7 @@ const SignIn = () => {
                       <input
                         type="submit"
                         placeholder="Type here"
-                        value="Submit"
+                        value="Sign In"
                         className="input input-ghost  bg-green-700 text-white w-full max-w-xs"
                       />
                       <div className="flex justify-between">
@@ -113,7 +113,7 @@ const SignIn = () => {
               <div class="order-first hidden w-full lg:block">
                 <img
                   class="object-cover h-full bg-cover rounded-l-lg"
-                  src={login}
+                  src={loginImage}
                   alt="login"
                 />
               </div>

@@ -2,6 +2,7 @@ import Register from "../components/Authentication/Register";
 import SignIn from "../components/Authentication/SignIn";
 import Brand from "../components/Brand";
 import Categories from "../components/Categories";
+import Error from "../components/Error";
 import Product from "../components/Product";
 import Products from "../components/Products";
 
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "/AllWatches",
         element: <Products />,
+      },
+      {
+        path: "*",
+        element: <Error></Error>,
       },
     ],
   },
