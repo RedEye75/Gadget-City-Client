@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import login from "../../images/login.jpg";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../../context/AuthProvider";
 
 const SignIn = () => {
+  const { login } = useContext(AuthContext);
   const handleLogin = (event) => {
     event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+
+    login(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .then((e) => console.error(e));
   };
   return (
     <div>
@@ -26,14 +39,15 @@ const SignIn = () => {
                     </div>
                   </div>
                 </div>
-                <form onClick={handleLogin}>
+                <form onSubmit={handleLogin}>
                   <div class="mt-6 space-y-2">
                     <div>
                       <label for="Email" class="sr-only">
                         Email
                       </label>
                       <input
-                        type="text"
+                        type="email"
+                        name="email"
                         placeholder="Email"
                         className="input input-bordered w-full max-w-xs"
                       />
@@ -43,18 +57,19 @@ const SignIn = () => {
                         Password
                       </label>
                       <input
-                        type="text"
+                        name="password"
+                        type="password"
                         placeholder="password"
                         className="input input-bordered w-full max-w-xs"
                       />
                     </div>
                     <div class="flex flex-col mt-4 lg:space-y-2">
-                      <button
-                        type="button"
-                        class="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                      >
-                        Sign In
-                      </button>
+                      <input
+                        type="submit"
+                        placeholder="Type here"
+                        value="Submit"
+                        className="input input-ghost  bg-green-700 text-white w-full max-w-xs"
+                      />
                       <div className="flex justify-between">
                         <Link>Don't have an account ?</Link>
                         <Link
