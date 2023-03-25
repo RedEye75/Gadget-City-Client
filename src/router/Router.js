@@ -2,6 +2,7 @@ import Register from "../components/Authentication/Register";
 import SignIn from "../components/Authentication/SignIn";
 import Brand from "../components/Brand";
 import Categories from "../components/Categories";
+import AddItem from "../components/dashboard/AddItem";
 import AddProduct from "../components/dashboard/AddProduct";
 import AllBuyer from "../components/dashboard/AllBuyer";
 import AllSeller from "../components/dashboard/AllSeller";
@@ -61,9 +62,13 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <Dashboard></Dashboard>,
         children: [
+          // {
+          //   path: "/dashboard/addProduct",
+          //   element: <AddProduct></AddProduct>,
+          // },
           {
-            path: "/dashboard/addProduct",
-            element: <AddProduct></AddProduct>,
+            path: "/dashboard/addItem",
+            element: <AddItem></AddItem>,
           },
           {
             path: "/dashboard",
