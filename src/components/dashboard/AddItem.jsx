@@ -15,6 +15,7 @@ const AddItem = () => {
 
   const imgBBKey = process.env.REACT_APP_imgbb_key;
   //   console.log(imgBBKey);
+  //   seller account: anas@gmail.com
 
   //  function for add product
   const addProduct = (data) => {

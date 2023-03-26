@@ -1,20 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import BookingModal from "./BookingModal";
 import Product from "./Product";
 
 const CategoryProducts = () => {
   const data = useLoaderData();
-  console.log(data?.category);
-  useEffect(() => {
-    fetch(`http://localhost:5000/products/${data?.category}`)
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }, [data.category]);
+  // console.log(data?.category);
+  // useEffect(() => {
+  //   fetch()
+  // }, []);
+
+  const [item, setItem] = useState(null);
+
+  console.log(item);
+
   return (
     <div>
-      {data.map((product) => (
-        <Product product={product}></Product>
-      ))}
+      <div>
+        {data.map((product) => (
+          // <Product setItem={setItem} product={product}></Product>
+
+          <h1>{product.name}</h1>
+        ))}
+      </div>
+
+      {/* <BookingModal></BookingModal> */}
     </div>
   );
 };

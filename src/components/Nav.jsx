@@ -6,9 +6,11 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
+
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import icon from "../images/favicon.ico";
+
 const Nav = () => {
   const [openNav, setOpenNav] = useState(false);
   const { user, logOut } = useContext(AuthContext);
@@ -48,7 +50,7 @@ const Nav = () => {
           Dashboard
         </NavLink>
       </Typography>
-      <Typography
+      {/* <Typography
         as="li"
         variant="small"
         color="blue-gray"
@@ -57,7 +59,7 @@ const Nav = () => {
         <NavLink to={"/watches"} className="flex items-center">
           Watches
         </NavLink>
-      </Typography>
+      </Typography> */}
       <Typography
         as="li"
         variant="small"

@@ -1,25 +1,49 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import register from "../../images/register.jpg";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const [createdUserEmail, setCreatedUserEmail] = useState("");
 
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const name = form.name.value;
-    const identity = form.identity.value;
+    const role = form.identity.value;
     const password = form.password.value;
-    console.log(form, password, identity, name, email);
+    // console.log(form, password, role, name, email);
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
+        const userInfo = {
+          displayName: name,
+        };
+
+        updateUserProfile(userInfo)
+          .then(() => {
+            saveUser(name, email, role);
+          })
+          .then((e) => console.log(e))
+          .catch((error) => console.log(error));
       })
       .catch((err) => console.log(err));
+  };
+
+  const saveUser = (name, email, role) => {
+    const user = { name, email, role };
+    fetch(`http://localhost:5000/users`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => setCreatedUserEmail(email));
   };
   return (
     <div>
@@ -32,7 +56,7 @@ const Register = () => {
                   <div>
                     <div class="mt-3 text-left sm:mt-5">
                       <div class="inline-flex items-center w-full">
-                        <h3 class="text-lg font-bold text-neutral-600 l eading-6 lg:text-5xl">
+                        <h3 class="text-lg font-bold text-neutral-600 leading-6 lg:text-5xl">
                           Sign Up
                         </h3>
                       </div>
