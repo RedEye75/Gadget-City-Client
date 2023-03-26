@@ -64,16 +64,26 @@ const AddItem = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-4xl  font-bold text-green-600">Add Product</h1>
-      <div>
+    <div className="max-w-screen-lg  mx-auto">
+      {/* <h1 className="text-4xl  font-bold text-green-600">Add Product</h1> */}{" "}
+      <header class="text-center">
+        <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Add Product</h2>
+
+        <p class="max-w-md mx-auto mt-4 text-gray-500">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+          praesentium cumque iure dicta incidunt est ipsam, officia dolor fugit
+          natus?
+        </p>
+      </header>
+      <div className="">
         <form
-          className="grid grid-cols-2 gap-2"
+          className="flex flex-col h-screen justify-center items-center gap-2 mx-auto"
           onSubmit={handleSubmit(addProduct)}
         >
           <input
             {...register("sellerName")}
             type="text"
+            value={user?.displayName}
             className="input input-bordered w-full max-w-xs"
             placeholder="Seller Name"
           />
@@ -87,12 +97,12 @@ const AddItem = () => {
           <input
             {...register("itemName")}
             type="text"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered  w-full max-w-xs"
             placeholder="Product Name"
           />
 
           <select
-            className="input input-bordered"
+            className="input w-full max-w-xs input-bordered"
             {...register("brand", { required: true })}
           >
             {/* <option selected disabled>
@@ -141,7 +151,7 @@ const AddItem = () => {
           <p>{data}</p>
           <input
             type="submit"
-            className="btn btn-outline bg-green-600 text-white"
+            className="btn btn-outline w-full max-w-xs bg-green-600 text-white"
           />
         </form>
       </div>

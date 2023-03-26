@@ -4,7 +4,7 @@ import { MdPayment } from "react-icons/md";
 
 const MyOrders = () => {
   const bookingData = useLoaderData();
-  console.log(bookingData);
+  // console.log(bookingData);
 
   return (
     <div>
