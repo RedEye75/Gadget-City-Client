@@ -14,6 +14,7 @@ import icon from "../images/favicon.ico";
 const Nav = () => {
   const [openNav, setOpenNav] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  console.log(user);
 
   const handleLogOut = () => {
     logOut()
@@ -40,6 +41,7 @@ const Nav = () => {
           Home
         </NavLink>
       </Typography>
+      {/* <a href="#brand">brand</a> */}
       <Typography
         as="li"
         variant="small"
@@ -50,23 +52,15 @@ const Nav = () => {
           Dashboard
         </NavLink>
       </Typography>
-      {/* <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-bold"
-      >
-        <NavLink to={"/watches"} className="flex items-center">
-          Watches
-        </NavLink>
-      </Typography> */}
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
         className="p-1 font-bold"
       >
-        <NavLink className="flex items-center">Blogs</NavLink>
+        <NavLink to={"/blogs"} className="flex items-center">
+          Blogs
+        </NavLink>
       </Typography>
     </ul>
   );
@@ -81,19 +75,31 @@ const Nav = () => {
             className="mr-4 flex cursor-pointer py-1.5 font-bold"
           >
             <img className="w-10" src={icon} alt="" />
-            <strong className="text-4xl   text-black ">Gadget City</strong>
+            <Link to={"/"}>
+              <strong className="text-4xl   text-black ">Gadget City</strong>
+            </Link>
           </Typography>
           <div className="hidden  text-black lg:block">{navList}</div>
           {user?.uid ? (
             <>
-              <Button
-                variant="gradient"
-                id="text"
-                onClick={handleLogOut}
-                className="hidden bg-[#941010] py-3 lg:inline-block"
-              >
-                <span>Sign Out</span>
-              </Button>
+              <div className="flex justify-around">
+                <div className="avatar">
+                  <div className="w-10 mr-2 rounded">
+                    <img
+                      src={user.photoURL}
+                      alt="Tailwind-CSS-Avatar-component"
+                    />
+                  </div>
+                </div>
+                <Button
+                  variant="gradient"
+                  id="text"
+                  onClick={handleLogOut}
+                  className="hidden bg-[#941010] py-3 lg:inline-block"
+                >
+                  <span>Sign Out</span>
+                </Button>
+              </div>
             </>
           ) : (
             <>

@@ -10,7 +10,7 @@ const Products = () => {
 
   // console.log(item);
   useEffect(() => {
-    fetch("http://localhost:5000/watches")
+    fetch("https://gadget-city-server.vercel.app/watches")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -51,7 +51,7 @@ const Products = () => {
           </div>
         </div>
       ))}
-      <BookingModal item={item}></BookingModal>
+      {item && <BookingModal setItem={setItem} item={item}></BookingModal>}
     </div>
   );
 };

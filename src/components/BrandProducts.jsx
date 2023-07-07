@@ -19,7 +19,7 @@ const BrandProducts = () => {
           ></BrandProduct>
         ))}
       </div>
-      <BookingModal item={item}></BookingModal>
+      {item && <BookingModal setItem={setItem} item={item}></BookingModal>}
     </div>
   );
 };

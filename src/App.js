@@ -6,10 +6,8 @@ import router from "./router/Router";
 function App() {
   return (
     <div className="App">
-      <RouterProvider router={router}>
-        {" "}
-        <Toaster />
-      </RouterProvider>
+      <RouterProvider router={router}> </RouterProvider>
+      <Toaster />
     </div>
   );
 }

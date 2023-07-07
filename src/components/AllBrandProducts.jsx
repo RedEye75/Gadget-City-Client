@@ -6,7 +6,7 @@
 // const AllBrandProducts = () => {
 //   const [datas, setData] = useState([]);
 //   useEffect(() => {
-//     fetch("http://localhost:5000/allWatches")
+//     fetch("https://gadget-city-server.vercel.app/allWatches")
 //       .then((res) => res.json())
 //       .then((data) => setData(data));
 //   }, []);

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { MdPayment } from "react-icons/md";
+import { AuthContext } from "../../context/AuthProvider";
 
 const MyOrders = () => {
+  const { loading } = useContext(AuthContext);
+  // loading(true);
   const bookingData = useLoaderData();
   // console.log(bookingData);
 
@@ -12,9 +15,8 @@ const MyOrders = () => {
         <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">My Orders</h2>
 
         <p class="max-w-md mx-auto mt-4 text-gray-500">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-          praesentium cumque iure dicta incidunt est ipsam, officia dolor fugit
-          natus?
+          "Stay organized with every order - Your one-stop-shop for all your
+          purchase history and tracking needs."
         </p>
       </header>
       <div className="max-w-screen-lg mx-auto">

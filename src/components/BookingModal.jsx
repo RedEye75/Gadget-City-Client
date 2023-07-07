@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../context/AuthProvider";
 
-const BookingModal = ({ item }) => {
+const BookingModal = ({ item, setItem }) => {
   const { user } = useContext(AuthContext);
   // console.log(user);
   // console.log(item);
@@ -31,8 +31,9 @@ const BookingModal = ({ item }) => {
       resalePrice,
       sellerLocation,
     };
+    setItem(null);
     // console.log(booking);
-    fetch(`http://localhost:5000/bookings`, {
+    fetch(`https://gadget-city-server.vercel.app/bookings`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,6 +45,8 @@ const BookingModal = ({ item }) => {
         console.log(data);
         if (data.acknowledged) {
           toast.success("Your order successfully added!");
+        } else {
+          toast.error("opps..!something went wrong");
         }
       });
   };

@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
 
 const AddItem = () => {
@@ -8,7 +9,7 @@ const AddItem = () => {
   const { user } = useContext(AuthContext);
   const [categories, setCategory] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/category")
+    fetch("https://gadget-city-server.vercel.app/category")
       .then((res) => res.json())
       .then((catData) => setCategory(catData));
   }, []);
@@ -49,7 +50,7 @@ const AddItem = () => {
             resalePrice: data.reSalePrice,
           };
           //   console.log(product);
-          fetch("http://localhost:5000/watches", {
+          fetch("https://gadget-city-server.vercel.app/watches", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -58,7 +59,9 @@ const AddItem = () => {
           })
             .then((res) => res.json())
             .then((data) => console.log(data));
-          alert("product inserted successfully");
+
+          // toast.success("Product added successfully");
+          toast.success("Your product is ready to sale!");
         }
       });
   };
@@ -70,9 +73,8 @@ const AddItem = () => {
         <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Add Product</h2>
 
         <p class="max-w-md mx-auto mt-4 text-gray-500">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-          praesentium cumque iure dicta incidunt est ipsam, officia dolor fugit
-          natus?
+          New Arrivals: Elevate Your Shopping Experience with Our Latest
+          Products!
         </p>
       </header>
       <div className="">

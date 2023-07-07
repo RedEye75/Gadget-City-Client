@@ -6,7 +6,7 @@ const Brand = ({ value }) => {
   const { category } = value;
 
   return (
-    <div className="max-w-screen-sm ">
+    <div id="brand" className="max-w-screen-sm ">
       <Link to={`/brand/${category}`}>
         <h2 class="  py-3 rounded-lg border  border-gray-300  font-medium text-xl text-gray-900">
           {value?.category}
